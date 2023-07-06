@@ -11,10 +11,22 @@
 <body>
 <th:block th:insert="~{fragments.html :: navbar}"></th:block>
 <div class="container">
-    <div th:each="mainSection : ${mainSectionList}" class="d-flex justify-content-center">
-    <div class="main-section my-4 d-flex justify-content-center align-items-center">
-        <a  th:href="@{/sekcja/{sectionName}/{id} (sectionName=${mainSection.sectionName},id=${mainSection.id})}" th:text="${mainSection.sectionName.toUpperCase()}"></a>
+    <div th:each="mainSection : ${mainSectionList}" class="d-flex justify-content-center flex-column align-items-center">
+    <div class="main-section my-4 d-flex justify-content-center align-items-center flex-column py-5">
+        <h3 th:text="${mainSection.sectionName.toUpperCase()}"></h3>
+        <th:block th:each="sec : ${sections}">
+            <th:block th:if="${mainSection.id} == ${sec.mainSectionId}">
+                    <a  th:href="@{/sekcja/{sectionName}/{id} (sectionName=${mainSection.sectionName},id=${mainSection.id})}" th:text="${sec.topic.toUpperCase()}"></a>
+            </th:block>
+        </th:block>
+
     </div>
+        <form method="post"  th:action="@{/persistNewSection}" class="d-flex flex-column align-items-center my-3">
+            <label class="form-label align-self-left">Podaj nazwę podsekcji:</label>
+            <input class="form-control mb-3" type="text" th:field="*{section.topic}" />
+            <input type="number"  th:value="${mainSection.id}" class="d-none" name="mainSectionId">
+            <button type="submit" class="btn btn-primary" >Dodaj</button>
+        </form>
     </div>
     <h4 class=" d-flex justify-content-center">Dodaj nową sekcję główną</h4>
     <form method="post"  class="d-flex flex-column align-items-center">

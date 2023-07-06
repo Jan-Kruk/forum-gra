@@ -1,11 +1,10 @@
-package pl.jankruk.it.forum.budowlane.database;
+package pl.jankruk.it.forum.budowlane.services;
 
 import pl.jankruk.it.forum.budowlane.entity.Section;
 
 import java.util.List;
 
-public interface ISectionDAO {
+public interface ISectionService {
     void persistSection(Section section);
-
     List<Section> findAllSections();
 }

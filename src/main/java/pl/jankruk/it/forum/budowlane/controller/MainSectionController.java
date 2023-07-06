@@ -6,15 +6,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import pl.jankruk.it.forum.budowlane.services.IMainSectionService;
 
 @Controller
 @RequestMapping(path = "/sekcja")
-public class SectionController {
+public class MainSectionController {
     private IMainSectionService mainSectionService;
 @Autowired
-    public SectionController(IMainSectionService mainSectionService) {
+    public MainSectionController(IMainSectionService mainSectionService) {
         this.mainSectionService = mainSectionService;
     }
 
