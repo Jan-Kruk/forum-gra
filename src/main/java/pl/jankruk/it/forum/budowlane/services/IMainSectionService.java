@@ -7,4 +7,5 @@ import java.util.List;
 public interface IMainSectionService {
     void persistMainSection(MainSection mainSection);
     List<MainSection> getAllMainSections();
+    MainSection findMainSection(int id);
 }

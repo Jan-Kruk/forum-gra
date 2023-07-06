@@ -7,4 +7,5 @@ import java.util.List;
 public interface IMainSectionDAO {
     void persistMainSection(MainSection mainSection);
     List<MainSection> findAllMainSections();
+    MainSection findMainSection(int id);
 }

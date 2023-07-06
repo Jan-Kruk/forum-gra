@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/section.css">
+    <link rel="stylesheet" href="/settings.css">
 </head>
 <body>
+<th:block th:insert="~{fragments.html :: navbar}"></th:block>
+<div class="container">
+<div class="d-flex justify-content-center my-5 title-box">
+    <h2  th:text="${MainSection.sectionName}" class="w-75 "></h2>
+    <div class="w-25">
+        <a th:href="@{/sekcja/add/{id} (id=${MainSection.id})}" type="button" class="btn btn-primary ">Dodaj nowy post</a>
+    </div>
+</div>
+    <div class="d-flex">
+            <img src="/write.png" alt="" class="me-4">
+        <div>
+            <h4>Tytul</h4>
+            <p>Data</p>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

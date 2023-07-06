@@ -30,4 +30,9 @@ public class MainSectionDAO implements IMainSectionDAO {
         TypedQuery<MainSection> typedQuery = entityManager.createQuery("From MainSection", MainSection.class);
         return typedQuery.getResultList();
     }
+
+    @Override
+    public MainSection findMainSection(int id) {
+        return entityManager.find(MainSection.class,id);
+    }
 }

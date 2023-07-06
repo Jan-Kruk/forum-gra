@@ -29,4 +29,9 @@ public class MainSectionService implements IMainSectionService {
        return mainSectionDAO.findAllMainSections();
     }
 
+    @Override
+    public MainSection findMainSection(int id) {
+        return mainSectionDAO.findMainSection(id);
+    }
+
 }

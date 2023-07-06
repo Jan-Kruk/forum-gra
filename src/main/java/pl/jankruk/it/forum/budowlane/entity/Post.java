@@ -23,9 +23,14 @@ public class Post {
     private int userID;
     @Column(name = "section_id")
     private int sectionId;
+    @Column(name = "date")
+    private String date;
 
-
-
-
-
+    public Post(String topic, String text, int userID, int sectionId, String date) {
+        this.topic = topic;
+        this.text = text;
+        this.userID = userID;
+        this.sectionId = sectionId;
+        this.date = date;
+    }
 }
