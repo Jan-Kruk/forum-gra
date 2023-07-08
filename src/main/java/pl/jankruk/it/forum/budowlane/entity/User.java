@@ -26,9 +26,11 @@ public class User {
     @Column(name = "email")
     private String email;
     @Column(name = "role")
-    private Role role;
+    private String role;
+    @Column(name = "date")
+    private String creationDate;
 
-    public User(String login, String password, String name, String surname, String email, Role role) {
+    public User(String login, String password, String name, String surname, String email, String role) {
         this.login = login;
         this.password = password;
         this.name = name;

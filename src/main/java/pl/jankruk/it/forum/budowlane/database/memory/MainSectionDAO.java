@@ -14,7 +14,6 @@ import java.util.List;
 public class MainSectionDAO implements IMainSectionDAO {
 
    private EntityManager entityManager;
-@Autowired
     public MainSectionDAO( EntityManager entityManager) {
         this.entityManager = entityManager;
     }

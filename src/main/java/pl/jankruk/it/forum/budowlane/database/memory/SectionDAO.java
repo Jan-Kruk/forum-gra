@@ -13,7 +13,6 @@ import java.util.List;
 @Repository
 public class SectionDAO implements ISectionDAO {
     private EntityManager entityManager;
-@Autowired
     public SectionDAO(EntityManager entityManager) {
         this.entityManager = entityManager;
     }

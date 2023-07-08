@@ -21,19 +21,23 @@
         </th:block>
 
     </div>
+        <th:block th:if="${admin}">
         <form method="post"  th:action="@{/persistNewSection}" class="d-flex flex-column align-items-center my-3">
             <label class="form-label align-self-left">Podaj nazwę podsekcji:</label>
             <input class="form-control mb-3" type="text" th:field="*{section.topic}" />
             <input type="number"  th:value="${mainSection.id}" class="d-none" name="mainSectionId">
             <button type="submit" class="btn btn-primary" >Dodaj</button>
+        </th:block>
         </form>
     </div>
+    <th:block th:if="${admin}">
     <h4 class=" d-flex justify-content-center">Dodaj nową sekcję główną</h4>
-    <form method="post"  class="d-flex flex-column align-items-center">
-        <label class="form-label align-self-left">Nazwa sekcji głównej:</label>
-        <input class="form-control w-50 mb-3" type="text" th:field="*{mainSection.sectionName}" />
-        <button type="submit" class="btn btn-primary">Dodaj</button>
-    </form>
+        <form method="post"  class="d-flex flex-column align-items-center">
+            <label class="form-label align-self-left">Nazwa sekcji głównej:</label>
+            <input class="form-control w-50 mb-3" type="text" th:field="*{mainSection.sectionName}" />
+            <button type="submit" class="btn btn-primary">Dodaj</button>
+        </form>
+    </th:block>
 </div>
 </body>
 </html>

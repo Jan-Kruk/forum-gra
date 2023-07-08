@@ -13,9 +13,9 @@ import java.util.List;
 public class MainSectionService implements IMainSectionService {
     private IMainSectionDAO mainSectionDAO;
 
+
     @Autowired
     public MainSectionService(IMainSectionDAO mainSectionDAO) {
-
         this.mainSectionDAO = mainSectionDAO;
     }
 
