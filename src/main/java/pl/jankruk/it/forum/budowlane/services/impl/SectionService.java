@@ -25,4 +25,10 @@ private ISectionDAO sectionDAO;
     public List<Section> findAllSections() {
         return sectionDAO.findAllSections();
     }
+
+    @Override
+    public Section findSectionById(int id) {
+        return sectionDAO.findSectionById(id);
+    }
+
 }

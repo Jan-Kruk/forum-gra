@@ -12,9 +12,11 @@
 <th:block th:insert="~{fragments.html :: navbar}"></th:block>
 <div class="container">
 <div class="d-flex justify-content-center my-5 title-box">
-    <h2  th:text="${MainSection.sectionName}" class="w-75 "></h2>
+    <h2  th:text="${Section.topic}" class="w-75 "></h2>
     <div class="w-25">
-        <a th:href="@{/sekcja/add/{id} (id=${MainSection.id})}" type="button" class="btn btn-primary ">Dodaj nowy post</a>
+        <th:block  th:if="${logged}">
+            <a th:href="@{/sekcja/add/{id} (id=${Section.id})}" type="button" class="btn btn-primary ">Dodaj nowy post</a>
+        </th:block>
     </div>
 </div>
     <div class="d-flex">

@@ -1,5 +1,6 @@
 package pl.jankruk.it.forum.budowlane.controller;
 
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,10 +12,13 @@ import pl.jankruk.it.forum.budowlane.entity.User;
 import pl.jankruk.it.forum.budowlane.exceptions.UserAlreadyExistException;
 import pl.jankruk.it.forum.budowlane.exceptions.UserValidationException;
 import pl.jankruk.it.forum.budowlane.services.IAuthenticationService;
+import pl.jankruk.it.forum.budowlane.session.SessionData;
 import pl.jankruk.it.forum.budowlane.validators.UserValidator;
 
 @Controller
 public class AuthenticationController {
+    @Resource
+    SessionData sessionData;
     private IAuthenticationService authenticationService;
 @Autowired
     public AuthenticationController(IAuthenticationService authenticationService) {
@@ -44,8 +48,17 @@ public class AuthenticationController {
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public String LoginUser(@RequestParam String login, @RequestParam String password){
+        try{
+            UserValidator.validateLogin(login);
+            UserValidator.validatePassword(password);
+            authenticationService.authenticate(login,password);
+            if(sessionData.isLogged()) {
+                return "redirect:/index";
+            }
+        }catch( UserValidationException e){
+        }
 
-    return "redirect:/index";
+    return "redirect:/login";
     }
 
 }

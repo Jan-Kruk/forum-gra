@@ -16,7 +16,7 @@
         <h3 th:text="${mainSection.sectionName.toUpperCase()}"></h3>
         <th:block th:each="sec : ${sections}">
             <th:block th:if="${mainSection.id} == ${sec.mainSectionId}">
-                    <a  th:href="@{/sekcja/{sectionName}/{id} (sectionName=${mainSection.sectionName},id=${mainSection.id})}" th:text="${sec.topic.toUpperCase()}"></a>
+                    <a  th:href="@{/sekcja/{sectionName}/{id} (sectionName=${sec.topic},id=${sec.id})}" th:text="${sec.topic.toUpperCase()}"></a>
             </th:block>
         </th:block>
 

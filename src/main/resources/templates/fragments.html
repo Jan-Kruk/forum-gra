@@ -20,12 +20,19 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex">
+                <th:block th:if="${logged}">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/login">Logout</a>
+                    </li>
+                </th:block>
+                <th:block th:unless="${logged}">
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="/login">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/register">Register</a>
+                    <a class="nav-link" aria-current="page" href="/register">Zarejstruj</a>
                 </li>
+                </th:block>
             </ul>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

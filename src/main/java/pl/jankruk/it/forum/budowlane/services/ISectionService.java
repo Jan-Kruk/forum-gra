@@ -7,4 +7,6 @@ import java.util.List;
 public interface ISectionService {
     void persistSection(Section section);
     List<Section> findAllSections();
+
+    Section findSectionById(int id);
 }

@@ -26,4 +26,10 @@ public class SessionData {
 
         return User.Role.valueOf(this.user.getRole()) == User.Role.ADMIN;
     }
+    public String getName(){
+        if (isLogged()){
+        return this.user.getName();
+        }
+        return null;
+    }
 }

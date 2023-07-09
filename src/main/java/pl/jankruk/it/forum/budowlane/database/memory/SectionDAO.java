@@ -28,4 +28,10 @@ public class SectionDAO implements ISectionDAO {
         TypedQuery<Section> typedQuery = entityManager.createQuery("From Section",Section.class);
         return typedQuery.getResultList();
     }
+
+    @Override
+    public Section findSectionById(int id) {
+        return entityManager.find(Section.class,id);
+    }
+
 }

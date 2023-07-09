@@ -8,4 +8,6 @@ public interface IAuthenticationService {
     void persistUser(User user);
 
     User findByLogin(String login);
+
+    void authenticate(String login, String password);
 }

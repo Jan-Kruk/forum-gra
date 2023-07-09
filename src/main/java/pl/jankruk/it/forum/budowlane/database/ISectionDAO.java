@@ -8,4 +8,6 @@ public interface ISectionDAO {
     void persistSection(Section section);
 
     List<Section> findAllSections();
+
+    Section findSectionById(int id);
 }
