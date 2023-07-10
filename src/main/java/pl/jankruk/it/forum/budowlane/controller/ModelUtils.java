@@ -8,5 +8,7 @@ public class ModelUtils {
         model.addAttribute("logged", sessionData.isLogged());
         model.addAttribute("admin", sessionData.isAdmin());
         model.addAttribute("userName", sessionData.getName());
+        model.addAttribute("userId",sessionData.getId());
+        model.addAttribute("userDate",sessionData.getDate());
     }
 }

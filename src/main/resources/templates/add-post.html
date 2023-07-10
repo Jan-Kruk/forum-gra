@@ -15,11 +15,25 @@
   <div class="container post-box">
     <div>
         <div>
-            <h4 th:text="${userName}"></h4>
-        </div>
-        <div>
-            <form action="post">
-                <textarea name="" cols="30" rows="10"></textarea>
+            <form method="post" >
+                <table class="table table-bordered">
+                    <tbody>
+                    <tr>
+                        <input type="text" th:field="*{post.topic}" placeholder="Temat" class="form-control">
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5 th:text="${userName}"></h5>
+                        </td>
+                        <td>
+                            <textarea cols="100" rows="5" th:field="*{post.text}" class="form-control"></textarea>
+
+                            <input type="text" th:value="${userId}" name="userId" class="d-none">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <input type="submit" value="Dodaj post" class="btn btn-primary w-25 ms-auto">
             </form>
         </div>
     </div>

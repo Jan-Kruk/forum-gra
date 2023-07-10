@@ -32,4 +32,16 @@ public class SessionData {
         }
         return null;
     }
+    public int getId(){
+        if (isLogged()){
+            return this.user.getId();
+        }
+        return 0;
+    }
+    public String getDate(){
+        if (isLogged()){
+            return this.user.getCreationDate();
+        }
+        return null;
+    }
 }
