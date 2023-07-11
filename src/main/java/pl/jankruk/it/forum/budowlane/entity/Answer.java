@@ -16,9 +16,13 @@ public class Answer {
     @Column(name = "id")
     private int id;
     @Column(name = "user_id")
-    private String userId;
+    private int userId;
     @Column(name = "text")
     private String text;
-    @Column(name = "section_id")
-    private int sectionId;
+    @Column(name = "post_id")
+    private int postId;
+    @Column(name = "answer_user")
+    private String answerUser;
+    @Column(name = "date")
+    private String date;
 }

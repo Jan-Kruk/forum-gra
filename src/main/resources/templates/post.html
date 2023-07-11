@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/settings.css">
+    <link rel="stylesheet" href="/post.css">
+</head>
+<body>
+<th:block th:insert="~{fragments.html :: navbar}"></th:block>
+<div class="container post-box my-5">
+    <table class="table table-bordered py-5">
+        <tbody>
+        <tr>
+            <td colspan="2">
+            <div>
+                <h4 th:text="${post.topic}"></h4>
+            </div>
+            </td>
+
+        </tr>
+        <tr>
+            <td class="userName py-4 text-center align-middle">
+                <h5 th:text="${userPost.login}"></h5>
+            </td>
+            <td class="userText py-4 ">
+                <p th:text="${post.date}" class="text-end"></p>
+                <p th:text="${post.text}"></p>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+<th:block th:each=" answer : ${answerList}">
+    <table class="table table-bordered py-5">
+        <tbody>
+        <tr>
+            <td class="userName py-4 text-center align-middle">
+                <h5 th:text="${answer.answerUser}"></h5>
+            </td>
+            <td class="userText py-4 ">
+                <p th:text="${answer.date}" class="text-end"></p>
+                <p th:text="${answer.text}"></p>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</th:block>
+
+<th:block th:if="${logged}">
+    <form method="post">
+        <table class="table table-bordered">
+            <tbody>
+            <tr>
+                <td>
+                    <h5 th:text="${userName}"></h5>
+                </td>
+                <td>
+                    <textarea cols="100" rows="5" th:field="*{answer.text}" class="form-control"></textarea>
+
+                    <input type="text" th:value="${userId}" name="userId" class="d-none">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <input type="submit" value="Dodaj odpowiedź" class="btn btn-primary w-25 ms-auto">
+    </form>
+</th:block>
+
+</div>
+</body>
+</html>

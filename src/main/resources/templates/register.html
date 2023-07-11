@@ -11,8 +11,10 @@
 <body>
 <th:block th:insert="~{fragments.html :: navbar}"></th:block>
 <div class="container d-flex justify-content-center flex-column align-items-center">
+
     <div id="info"></div>
     <form method="post" onsubmit="return validate()" class="w-25 d-flex flex-column justify-content-center">
+        <h3>Zarejstruj się</h3>
         <input type="text" class="form-control my-2" placeholder="Imie" id="name" th:field="*{userModel.name}">
         <input type="text" class="form-control my-2" placeholder="Nazwisko" id="surname" th:field="*{userModel.surname}">
         <input type="text" class="form-control my-2" placeholder="Email" id="email" th:field="*{userModel.email}">
