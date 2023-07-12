@@ -53,6 +53,7 @@ public class PostController {
         model.addAttribute("userPost",userService.findUserById(post.getUserID()));
         model.addAttribute("answer", new Answer());
         model.addAttribute("answerList",postService.findAllAnswersByPostId(postId));
+        model.addAttribute("section",sectionService.findSectionById(post.getSectionId()));
         ModelUtils.addCommonDataToModel(model,sessionData);
         return "post";
     }

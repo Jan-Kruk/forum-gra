@@ -19,14 +19,14 @@
                 <table class="table table-bordered">
                     <tbody>
                     <tr>
-                        <input type="text" th:field="*{post.topic}" placeholder="Temat" class="form-control">
+                        <input type="text" th:field="*{post.topic}" id="topic" placeholder="Temat" class="form-control">
                     </tr>
                     <tr>
                         <td>
                             <h5 th:text="${userName}"></h5>
                         </td>
                         <td>
-                            <textarea cols="100" rows="5" th:field="*{post.text}" class="form-control"></textarea>
+                            <textarea cols="100" rows="5" th:field="*{post.text}" id="text" class="form-control"></textarea>
 
                             <input type="text" th:value="${userId}" name="userId" class="d-none">
                         </td>

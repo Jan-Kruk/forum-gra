@@ -10,6 +10,13 @@
 </head>
 <body>
 <th:block th:insert="~{fragments.html :: navbar}"></th:block>
+<nav aria-label="breadcrumb" class="container">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/index">Home</a></li>
+        <li class="breadcrumb-item" ><a th:href="@{/sekcja/{sectionName}/{id} (sectionName=${section.topic},id=${section.id})}" th:text="${section.topic}"></a></li>
+        <li class="breadcrumb-item active" aria-current="page" th:text="${post.topic}"></li>
+    </ol>
+</nav>
 <div class="container post-box my-5">
     <table class="table table-bordered py-5">
         <tbody>

@@ -11,6 +11,12 @@
 <body>
 <th:block th:insert="~{fragments.html :: navbar}"></th:block>
 <div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/index">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page" th:text="${Section.topic}"></li>
+        </ol>
+    </nav>
 <div class="d-flex justify-content-center my-5 title-box">
     <h2  th:text="${Section.topic}" class="w-75 "></h2>
     <div class="w-25">

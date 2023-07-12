@@ -60,5 +60,10 @@ public class AuthenticationController {
 
     return "redirect:/login";
     }
+    @RequestMapping(path = "/logout", method = RequestMethod.GET)
+    public String logout(){
+    sessionData.setUser(null);
+    return "redirect:/index";
+    }
 
 }
