@@ -43,6 +43,13 @@ public class PostDAO implements IPostDAO {
     }
 
     @Override
+    public List<Post> findAllPosts() {
+        TypedQuery<Post> typedQuery = entityManager.createQuery("From Post",Post.class);
+        return typedQuery.getResultList();
+    }
+
+
+    @Override
     @Transactional
     public void persistAnswer(Answer answer) {
         entityManager.persist(answer);
@@ -52,6 +59,12 @@ public class PostDAO implements IPostDAO {
     public List<Answer> findAllAnswersByPostId(int id) {
         TypedQuery<Answer> typedQuery = entityManager.createQuery("From Answer where postId=:data", Answer.class);
         typedQuery.setParameter("data",id);
+        return typedQuery.getResultList();
+    }
+
+    @Override
+    public List<Answer> findAllAnswers() {
+        TypedQuery<Answer> typedQuery = entityManager.createQuery("From Answer", Answer.class);
         return typedQuery.getResultList();
     }
 }

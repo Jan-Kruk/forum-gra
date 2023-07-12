@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import pl.jankruk.it.forum.budowlane.entity.MainSection;
 import pl.jankruk.it.forum.budowlane.entity.Section;
 import pl.jankruk.it.forum.budowlane.services.IMainSectionService;
+import pl.jankruk.it.forum.budowlane.services.IPostService;
 import pl.jankruk.it.forum.budowlane.services.ISectionService;
 import pl.jankruk.it.forum.budowlane.session.SessionData;
 
@@ -19,13 +20,19 @@ import pl.jankruk.it.forum.budowlane.session.SessionData;
 public class CommonController {
     private IMainSectionService mainSectionService;
     private ISectionService sectionService;
+
+    private IPostService postService;
     @Resource
     SessionData sessionData;
-@Autowired
-    public CommonController(IMainSectionService mainSectionService, ISectionService sectionService) {
+    @Autowired
+    public CommonController(IMainSectionService mainSectionService, ISectionService sectionService, IPostService postService) {
         this.mainSectionService = mainSectionService;
         this.sectionService = sectionService;
+        this.postService = postService;
     }
+
+
+
 
     @RequestMapping(path = {"/","/index"}, method = RequestMethod.GET)
     public String main(Model model){
@@ -51,6 +58,11 @@ public class CommonController {
         }
         section.setMainSectionId(mainSectionId);
         sectionService.persistSection(section);
+        return "redirect:/index";
+    }
+    @RequestMapping(path = "/searchForValue", method = RequestMethod.GET)
+    public String Search(Model model, @RequestParam String searchValue){
+        System.out.println(postService.filterPostsByText(searchValue));
         return "redirect:/index";
     }
 }
